@@ -1,3 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using RADVisParser.Parsers.VTK;
 
-Console.WriteLine("Hello, World!");
+var parser = new VTKParser("/Users/matheus/Development/radvis-parser/Example/Inputs/track_yz.vtk");
+var header = parser.Parse();
+Console.WriteLine($"Header:{header}");
