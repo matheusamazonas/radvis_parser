@@ -1,0 +1,12 @@
+/Users/matheus/Development/radvis-parser/RADVisParser/bin/Debug/net6.0/RADVisParser.deps.json
+/Users/matheus/Development/radvis-parser/RADVisParser/bin/Debug/net6.0/RADVisParser.dll
+/Users/matheus/Development/radvis-parser/RADVisParser/bin/Debug/net6.0/RADVisParser.pdb
+/Users/matheus/Development/radvis-parser/RADVisParser/obj/Debug/net6.0/RADVisParser.csproj.AssemblyReference.cache
+/Users/matheus/Development/radvis-parser/RADVisParser/obj/Debug/net6.0/RADVisParser.GeneratedMSBuildEditorConfig.editorconfig
+/Users/matheus/Development/radvis-parser/RADVisParser/obj/Debug/net6.0/RADVisParser.AssemblyInfoInputs.cache
+/Users/matheus/Development/radvis-parser/RADVisParser/obj/Debug/net6.0/RADVisParser.AssemblyInfo.cs
+/Users/matheus/Development/radvis-parser/RADVisParser/obj/Debug/net6.0/RADVisParser.csproj.CoreCompileInputs.cache
+/Users/matheus/Development/radvis-parser/RADVisParser/obj/Debug/net6.0/RADVisParser.dll
+/Users/matheus/Development/radvis-parser/RADVisParser/obj/Debug/net6.0/refint/RADVisParser.dll
+/Users/matheus/Development/radvis-parser/RADVisParser/obj/Debug/net6.0/RADVisParser.pdb
+/Users/matheus/Development/radvis-parser/RADVisParser/obj/Debug/net6.0/ref/RADVisParser.dll
