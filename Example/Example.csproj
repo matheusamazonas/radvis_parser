@@ -11,4 +11,8 @@
       <Folder Include="Inputs" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\RADVisParser\RADVisParser.csproj" />
+    </ItemGroup>
+
 </Project>
