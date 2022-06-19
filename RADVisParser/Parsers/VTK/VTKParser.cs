@@ -1,5 +1,8 @@
 using Pidgin;
-using RADVisParser.Data.VTK;
+using RADVisParser.Data;
+using static Pidgin.Parser;
+using static RADVisParser.Parsers.CommonParser;
+using File = RADVisParser.Data.VTK.File;
 
 namespace RADVisParser.Parsers.VTK;
 
@@ -15,7 +18,7 @@ public class VTKParser
 
     public VTKParser(string filePath)
     {
-        if (!File.Exists(filePath))
+        if (!System.IO.File.Exists(filePath))
             throw new FileNotFoundException($"File to be parsed not found: {filePath}");
 
         _filePath = filePath;
@@ -25,11 +28,26 @@ public class VTKParser
 
     #region Public
 
-    public Header Parse()
+    public File Parse()
     {
         using var fileStream = new FileStream(_filePath, FileMode.Open, FileAccess.Read);
         using var readStream = new StreamReader(fileStream);
-        return HeaderParser.Parse().ParseOrThrow(readStream);
+        var parser = from header in HeaderParser.Parse()
+            from dimensions in ParseDimensions()
+            select new File(header, dimensions);
+        return parser.ParseOrThrow(readStream);
+    }
+
+    #endregion
+
+    #region Private
+
+    private static Parser<char, Vector3<int>> ParseDimensions()
+    {
+        return String("DIMENSIONS")
+            .Before(SkipWhitespaces)
+            .Then(ParseIntVector())
+            .Before(ParseLineEnding());
     }
 
     #endregion

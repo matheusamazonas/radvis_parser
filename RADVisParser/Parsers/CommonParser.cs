@@ -1,4 +1,5 @@
 using Pidgin;
+using RADVisParser.Data;
 using static Pidgin.Parser;
 
 namespace RADVisParser.Parsers;
@@ -19,6 +20,14 @@ internal static class CommonParser
         return Try(String("\r\n"))
             .Or(String("\n"))
             .IgnoreResult();
+    }
+
+    internal static Parser<char, Vector3<int>> ParseIntVector()
+    {
+        return from x in Int(10).Before(SkipWhitespaces)
+            from y in Int(10).Before(SkipWhitespaces)
+            from z in Int(10)
+            select new Vector3<int>(x, y, z);
     }
 
     #endregion
