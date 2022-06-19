@@ -25,8 +25,12 @@ internal static class HeaderParser
 
     private static Parser<char, Version> ParseVersion()
     {
-        return from major in String("# vtk DataFile Version ").Then(UnsignedInt(10)) 
-            from minor in Char('.').Then(UnsignedInt(10)).Before(ParseLineEnding())
+        return 
+            from major in String("# vtk DataFile Version ")
+                .Then(UnsignedInt(10)) 
+            from minor in Char('.')
+                .Then(UnsignedInt(10))
+                .Before(ParseLineEnding())
             select new Version(major, minor);
     }
     
