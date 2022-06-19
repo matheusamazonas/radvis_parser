@@ -15,6 +15,11 @@ internal static class CommonParser
             .Before(ParseLineEnding());
     }
 
+    internal static Parser<char, Unit> ParseWhitespaces()
+    {
+        return Char(' ').Many().IgnoreResult();
+    }
+
     internal static Parser<char, Unit> ParseLineEnding()
     {
         return Try(String("\r\n"))
@@ -24,10 +29,20 @@ internal static class CommonParser
 
     internal static Parser<char, Vector3<int>> ParseIntVector()
     {
-        return from x in Int(10).Before(SkipWhitespaces)
-            from y in Int(10).Before(SkipWhitespaces)
+        return from x in Int(10)
+                .Before(SkipWhitespaces)
+            from y in Int(10)
+                .Before(SkipWhitespaces)
             from z in Int(10)
             select new Vector3<int>(x, y, z);
+    }
+
+    internal static Parser<char, double[]> ParseDoubleArray(int count)
+    {
+        return Real
+            .Before(SkipWhitespaces)
+            .Repeat(count)
+            .Select(doubles => doubles.ToArray());
     }
 
     #endregion
