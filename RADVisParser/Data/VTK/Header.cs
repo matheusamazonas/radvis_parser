@@ -23,7 +23,7 @@ public readonly struct Header
 
     #endregion
 
-    #region Setup
+    #region Public
 
     public override string ToString()
     {

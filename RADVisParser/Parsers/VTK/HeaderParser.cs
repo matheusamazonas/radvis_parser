@@ -48,7 +48,8 @@ internal static class HeaderParser
 
     private static Parser<char, DataType> ParseTopology()
     {
-        return String("DATASET ")
+        return String("DATASET")
+            .Before(SkipWhitespaces)
             .Then(ParseDataType());
     }
     
